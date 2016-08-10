@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <title>smart-room</title>
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+        <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+        <link href="css/ihover.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"/>
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+        <link type="text/css" href="css/main.css" rel="stylesheet" media="screen" />
+        <link type="text/css" href="css/media.css" rel="stylesheet" media="screen" />
+        <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script type="text/javascript" src="http://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+        <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+        <script src="https://use.fontawesome.com/9636700c7b.js"></script>
+        <script type="text/javascript" src="js/common.js" ></script>
+    </head>
+    <body>
+    	<!-- Start Header -->
+        <header>
+            <div class="container header" id="home">
+                <div class="row">
+                    <div class="col-md-3 logo-holder">
+                        <a href="#" class="logo">
+                            <img src="img/logo.png" alt="logo">
+                        </a>
+                    </div>    
+                    <div class="col-md-9 menu list-inline text-right">
+                        <!-- <div class="basket-holder pull-right">
+                            <a href="#" class="basket">
+                                <b>корзина</b>
+                                <i>4</i>
+                            </a>
+                        </div> -->
+                        <div class="adress-phones pull-right">
+                            <span>+38(066) 886 92 56</span>
+                            <span>+38(099) 299 67 63</span>
+                        </div>
+                        <div class="search pull-right">
+                            <input type="text" placeholder="Найдите желаемый товар">
+                            <a href="#"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid header-bottom">
+                <div class="container">
+                    <div class="row">
+                        <a href="#" class="logo pull-left hidden-xs hidden-sm">
+                            <img src="img/logo-white.png" alt="logo">
+                        </a>
+                        <button type="button" class="navbar-toggle mobile_nav pull-left">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <ul class="nav header-nav pull-left">
+                            <li><a class="menuLink" href="#home">Главная</a></li>
+                            <li class="drop">
+                                <a class="menuLink" href="#all_products">Категории</a>
+                                <div class="dropdown-holder">
+                                    <ul>
+                                        <li><a href="#">Телевизоры</a></li>
+                                        <li><a href="#">Холодильники</a></li>
+                                        <li><a href="#">Проекторы</a></li>
+                                        <li><a href="#">Фотоаппараты</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li><a class="menuLink" href="#about_us">О нас</a></li>
+                            <li><a class="menuLink" href="#delivery">Доставка</a></li>
+                            <li><a class="menuLink" href="#contacts">Контакты</a></li>
+                        </ul>
+                        <!-- <div class="basket-holder pull-right">
+                            <a href="#" class="basket">
+                                <b></b>
+                                <i>4</i>
+                            </a>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- End Header -->
+        <!-- Start Main -->
+        <div class="wrapper category-item-page">
+            <div class="container-fluid breadcrumbs-holder">
+                <div class="container">
+                    <div class="row">
+                        <ol class="breadcrumb">
+                          <li><a href="#">Главная</a></li>
+                          <li class="active">Телевизоры</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid category-title">
+                <div class="container">
+                    <div class="row">
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid category-item-holder">
+                <div class="container tv-sort">
+                    <div class="row">
+                        <form class="form-inline sort-wrapper">
+                            <select class="form-control">
+                                <option selected="selected">выберите бренд</option>
+                                <option>lg</option>
+                                <option>panasonic</option>
+                                <option>philips</option>
+                                <option>samsung</option>
+                                <option>sony</option>
+                            </select>
+                            <select class="form-control">
+                                <option selected="selected">выберите диагональ</option>
+                                <option>32"- 40"</option>
+                                <option>42"- 55"</option>
+                                <option>55" и выше</option>
+                            </select>
+                            <select class="form-control">
+                                <option selected="selected">сортировать по</option>
+                                <option>от дешевых к дорогим</option>
+                                <option>от дорогих к дешевым</option>
+                                <option>по популярности</option>
+                            </select>
+                          <a href="javascript:void(0);" class="btn">сортировать</a>
+                        </form>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="product-holder">
+                                <figure>
+                                    <img src="img/category-item-img.png" alt="img-product">
+                                    <figcaption>
+                                        <h3>Sony</h3>
+                                        <span>KDL-40R553C</span>
+                                        <a href="javascript:void(0);">подробнее</a>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="product-holder">
+                                <figure>
+                                    <img src="img/category-item-img.png" alt="img-product">
+                                    <figcaption>
+                                        <h3>Sony</h3>
+                                        <span>KDL-40R553C</span>
+                                        <a href="javascript:void(0);">подробнее</a>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="product-holder">
+                                <figure>
+                                    <img src="img/category-item-img.png" alt="img-product">
+                                    <figcaption>
+                                        <h3>Sony</h3>
+                                        <span>KDL-40R553C</span>
+                                        <a href="javascript:void(0);">подробнее</a>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="product-holder">
+                                <figure>
+                                    <img src="img/category-item-img.png" alt="img-product">
+                                    <figcaption>
+                                        <h3>Sony</h3>
+                                        <span>KDL-40R553C</span>
+                                        <a href="javascript:void(0);">подробнее</a>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="product-holder">
+                                <figure>
+                                    <img src="img/category-item-img.png" alt="img-product">
+                                    <figcaption>
+                                        <h3>Sony</h3>
+                                        <span>KDL-40R553C</span>
+                                        <a href="javascript:void(0);">подробнее</a>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="product-holder">
+                                <figure>
+                                    <img src="img/category-item-img.png" alt="img-product">
+                                    <figcaption>
+                                        <h3>Sony</h3>
+                                        <span>KDL-40R553C</span>
+                                        <a href="javascript:void(0);">подробнее</a>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid footer">
+                <div class="container" id="contacts">
+                    <div class="row">
+                        <div class="col-sm-12 logo-contacts clearfix text-center">
+                            <a href="#" class="logo">
+                                <img src="img/logo-white.png" alt="logo">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1105,3 +1105,77 @@ h2 {
 }
 
 /*fixed-header*/
+
+/* search-block */
+.search-block {
+    max-width: 500px;
+    width: 100%;
+    max-height: 203px;
+    overflow-y: auto;
+    border: 1px solid #e9e9ea;
+    position: absolute;
+    top: 30px;
+    left: 0;
+    right: 20px;
+    margin: 0 auto;
+    z-index: 9999;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 1px 3px 7px 0px rgba(200, 200, 200, 0.5);
+    border-bottom: 3px solid #ccc;
+}
+.search-item {
+    display: block;
+    padding: 10px 15px;
+    border-bottom: 1px solid #eaeaea;
+    position: relative;
+}
+.search-item:hover {
+    background-color: #fcfcee;
+}
+.search-item:before {
+    content: '>';
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+    font: 20px/22px 'Roboto';
+    color: #000;
+}
+.search-item img {
+    display: block;
+    max-width: 60px;
+    width: 100%;
+}
+
+.text-block {
+    margin-left: 25px;
+    text-align: left;
+}
+.search-item h3 {
+    padding-top: 5px;
+    margin-right: 5px;
+    color: #000;
+    font-weight: 300;
+}
+.search-item span {
+    padding-top: 5px;
+}
+
+.search-item i {
+    display: block;
+}
+.search-item .price {
+    padding-top: 20px;
+    font: 18px/20px 'Roboto';
+    margin-right: 40px;
+
+}
+
+
+/* end search-block */

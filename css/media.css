@@ -77,7 +77,7 @@
     header .nav {
         display: none;
         position: absolute;
-        top: 60px;
+        top: 59px;
         left: 0;
         right: 0;
         background: #000;
@@ -148,6 +148,10 @@
     .banner-description {
         display: none;
     }
+
+    .search-block {
+        top: 100px;
+    }
 }
 
 @media only screen and (max-width : 540px) {
@@ -186,6 +190,11 @@
     }
 }
 @media only screen and (max-width : 450px) {
+    .item .price {
+        padding-top: 20px;
+        font: 18px/20px 'Roboto';
+        margin-right: 0px;
+    }   
 }
 
 @media only screen and (max-width : 380px) {

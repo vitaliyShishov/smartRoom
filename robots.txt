@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /admin
+Disallow: /assets
+Disallow: /catalog
+Disallow: /image
+Disallow: /system
+Disallow: /tasks
+Sitemap: https://smartRoom.com.ua/sitemap.xml
+Host: https://smartRoom.com.ua

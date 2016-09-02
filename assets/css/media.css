@@ -1,0 +1,201 @@
+/* Small Devices */
+@media only screen and (min-width : 1200px) {
+}
+
+@media only screen and (max-width : 1200px) {
+
+    .row .menu {
+        text-align: left;
+    }
+
+    .menu .search {
+        margin-right: 20px;
+        max-width: 230px;
+    }
+
+    .menu .search input {
+        max-width: 200px;
+    }
+
+    .ih-item.circle.effect5 .info h3 {
+        letter-spacing: 1px;
+        font: 17px/19px 'Roboto';
+        font-weight: 900;
+        padding: 80px 0 40px 0;
+    }
+}
+
+@media only screen and (max-width : 992px) {
+    .logo-holder {
+        width: 100%;
+        text-align: center;
+    }
+
+    .row .menu {
+        width: 100%;
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    .row nav a {
+        margin-right: 15px;
+    }
+
+    .header-fixed .logo {
+        display: none !important;
+    }  
+
+    .ih-item.circle.effect5 .info h3 {
+        letter-spacing: 1px;
+        font: 15px/17px 'Roboto';
+        font-weight: 900;
+        padding: 60px 0 25px 0;
+        height: 50px;
+    }
+
+    .banner-description {
+        max-width: 300px;
+        bottom: 0px;
+        left: 0px;
+    }
+
+    .adress-phones {
+        float: none !important;
+    }
+
+    .menu .search {
+        float: none !important;
+        
+    }
+}
+
+@media only screen and (min-width : 770px) and (max-width : 992px) {
+}
+
+
+@media only screen and (max-width : 769px) {
+    header .nav {
+        display: none;
+        position: absolute;
+        top: 59px;
+        left: 0;
+        right: 0;
+        background: #000;
+        z-index: 1;
+        text-align: center;
+    }
+
+    .row .navbar-toggle {
+        display: block;
+        margin: 15px;
+    }
+
+    .nav li a {
+        padding: 15px 30px;
+    }
+
+    .dropdown-holder {
+        top: 32px;
+    }
+
+    .slider-nav {
+        margin-bottom: 20px;
+    }
+
+    .header-fixed .basket-holder {
+        padding: 15px 0;
+    }
+
+    .preferences-item,
+    .row .money {
+        margin: 0 auto 60px;
+    }
+}
+
+@media only screen and (max-width : 767px) {
+    .ih-item.circle.effect5 .info h3 {
+        letter-spacing: 2px;
+        font: 30px/32px 'Roboto';
+        font-weight: 900;
+        margin: 0px auto;
+        padding: 145px 0 40px 0;
+    }
+
+    
+}
+
+@media only screen and (max-width : 650px) {
+    .nav li a {
+        padding: 15px;
+    }
+
+    .row .menu .adress-phones {
+        float: none !important;
+        display: block;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto 25px;
+        text-align: center;
+    }
+
+    .row .menu .search {
+        float: none !important;
+        display: block;
+        width: 100%;
+        margin: 0 auto 25px;
+    }
+
+    .banner-description {
+        display: none;
+    }
+
+    .search-block {
+        top: 100px;
+    }
+}
+
+@media only screen and (max-width : 540px) {
+    .row .menu .phones {
+        width: 100%;
+        text-align: center;
+        margin: 0 auto 20px;
+    }
+
+    .row .menu .search {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin: 0 auto 20px;
+    }
+    
+    .nav li a {
+        display: block;
+    }
+
+    .header-fixed .nav li a {
+        display: block;
+    }
+
+    .header-fixed .dropdown-holder {
+        position: relative;
+        max-width: 100%;
+        width: 100%;
+        top: 0px;
+        max-height: 185px;
+        overflow-y: auto;
+    }
+
+    li .dropdown-holder ul {
+        width: 100%;
+    }
+}
+@media only screen and (max-width : 450px) {
+    .item .price {
+        padding-top: 20px;
+        font: 18px/20px 'Roboto';
+        margin-right: 0px;
+    }   
+}
+
+@media only screen and (max-width : 380px) {
+}

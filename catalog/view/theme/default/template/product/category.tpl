@@ -41,16 +41,16 @@
         </div>
         <div class="container">
             <div class="row" ng-show="products">
-                <div class="col-sm-4" ng-repeat="product in products track by $index"  ng-show="product.flag">
+                <div class="col-sm-4" ng-repeat="product in products |orderBy : 'sort_order'"  ng-show="product.flag">
                     <div class="product-holder">
                         <figure>
-                            <img src="{{product.image}}"
+                            <img ng-src="{{product.image}}"
                                  alt="{{product.name}}">
                             <figcaption>
-                                <h3>{{product.name}}</h3>
+                                <h3>{{product.name}} {{product.product_kod}}</h3>
                                 <span>{{product.model}}</span>
                                 <a href="{{product.href}}">
-                                    <?php echo $text_more; ?>
+                                    {{product.price}}
                                 </a>
                             </figcaption>
                         </figure>

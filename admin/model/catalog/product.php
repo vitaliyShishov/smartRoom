@@ -13,7 +13,7 @@ class ModelCatalogProduct extends Model
             status = '" . (int) $data['status'] . "', 
             in_stock = '" . (int) $data['in_stock'] . "', 
             article = '" . $this->db->escape($data['article']) . "',     
-            product_kod = '" . $this->db->escape($data['product_kod']) . "',     
+            product_kod = '" . $this->db->escape($data['article']) . "',     
             sort_order = '" . (int) $data['sort_order'] . "',
             date_added = NOW()");
         $product_id = $this->db->getLastId();
@@ -111,7 +111,7 @@ class ModelCatalogProduct extends Model
             status = '" . (int) $data['status'] . "',
             in_stock = '" . (int) $data['in_stock'] . "', 
             sort_order = '" . (int) $data['sort_order'] . "',
-            article = '" . $this->db->escape($data['article']) . "',     
+            product_kod = '" . $this->db->escape($data['article']) . "',     
             date_modified = NOW()
             WHERE product_id = '" . (int) $product_id . "'");
 

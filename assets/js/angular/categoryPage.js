@@ -18,7 +18,9 @@ angular.module('categoryPage')
             }
 
             if (Object.keys(products).length > 0) {
-                $scope.products = $filter('pagination')(products, $scope.limit);
+                $scope.products = Object.keys($filter('pagination')(products, $scope.limit)).map(function(key) {
+                    return $filter('pagination')(products, $scope.limit)[key];
+                });
             }
 
             if (url) {
@@ -35,9 +37,10 @@ angular.module('categoryPage')
 
             FilterService.getProducts($scope.url, $scope.filtersToSend, $scope.categoryId)
                 .then(function (response) {
-                    console.log(response.data.products);
                     if (Object.keys(response.data.products).length > 0) {
-                        $scope.products = $filter('pagination')(response.data.products, $scope.limit);
+                        $scope.products = Object.keys($filter('pagination')(products, $scope.limit)).map(function(key) {
+                            return $filter('pagination')(products, $scope.limit)[key];
+                        });
                     } else {
                         $scope.products = null;
                     }

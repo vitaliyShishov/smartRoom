@@ -822,7 +822,7 @@ class ControllerCatalogProduct extends Controller
         if (isset($this->request->post['article'])) {
             $data['article'] = $this->request->post['article'];
         } elseif (!empty($product_info)) {
-            $data['article'] = $product_info['article'];
+            $data['article'] = $product_info['product_kod'];
         } else {
             $data['article'] = '';
         }
@@ -921,9 +921,7 @@ class ControllerCatalogProduct extends Controller
 
             $this->load->model('catalog/product_parameter');
 
-            if (isset($this->request->post['product_parameters'])) {
-                $product_parameters = $this->request->post['product_parameters'];
-            } elseif (isset($this->request->get['product_id'])) {
+            if (isset($this->request->get['product_id'])) {
                 $product_parameters = $this->model_catalog_product_parameter->getParametersForProduct($this->request->get['product_id']);
             } else {
                 $product_parameters = array();

@@ -135,6 +135,8 @@ class ControllerProductCategory extends Controller
             $products = $this->model_catalog_category->formatProduct($temp_products);
         }
 
+        array_values($products);
+
         $json['products'] = $products;
 
         if ((strstr($this->request->server['HTTP_ACCEPT'], ',', true)) == 'application/json') {

@@ -89,6 +89,7 @@ class ModelCatalogCategory extends Model
         $sql .= " p.image, 
                 pd.name, 
                 p2c.category_id,
+                p.product_kod,
                 p.sort_order
                 FROM " . DB_PREFIX . "param_value_to_product pv2p 
                 INNER JOIN " . DB_PREFIX . "param_value pv ON (pv.param_value_id = pv2p.param_value_id)
@@ -128,7 +129,7 @@ class ModelCatalogCategory extends Model
             $sql .= "HAVING (count_par >= '" . (int)count($params) . "') ";
         }
 
-        $sql .= "ORDER BY p.price";
+        $sql .= "ORDER BY p.sort_order ASC";
 
         if ($limit) {
             $sql .= " LIMIT " . $offset . ", " . $limit;
@@ -152,6 +153,8 @@ class ModelCatalogCategory extends Model
             $products[$product['product_id']]['product_id'] = $product['product_id'];
             $products[$product['product_id']]['name'] = $product['name'];
             $products[$product['product_id']]['in_stock'] = $product['in_stock'];
+            $products[$product['product_id']]['product_kod'] = $product['product_kod'];
+            $products[$product['product_id']]['sort_order'] = $product['sort_order'];
 
             if ($product['image'] && (file_exists(DIR_IMAGE . '/' . $product['image']))) {
                 $image = $product['image'];
@@ -163,7 +166,7 @@ class ModelCatalogCategory extends Model
 
             $products[$product['product_id']]['price'] = $this->currency->format($product['price']);
         }
-        array_values($products);
+
         return $products;
     }
 

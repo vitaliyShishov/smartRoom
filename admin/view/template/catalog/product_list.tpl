@@ -95,6 +95,7 @@
                     <?php } else { ?>
                     <a href="<?php echo $sort_model; ?>"><?php echo $column_model; ?></a>
                     <?php } ?></td>
+                  <td class="text-center"><?php echo 'Product code'; ?></td>
                   <td class="text-left"><?php if ($sort == 'category_name') { ?>
                     <a href="<?php echo $sort_category; ?>" class="<?php echo strtolower($order); ?>"><?php echo $column_category; ?></a>
                     <?php } else { ?>
@@ -134,6 +135,7 @@
                     <?php } ?></td>
                   <td class="text-left"><?php echo $product['name']; ?></td>
                   <td class="text-left"><?php echo $product['model']; ?></td>
+                  <td class="text-left"><?php echo $product['product_kod']; ?></td>
                   <td class="text-left"><?php echo $product['category_name']; ?></td>
                   <td class="text-right"><?php echo $product['price']; ?></td>
                   <td class="text-left"><?php echo $product['status']; ?></td>

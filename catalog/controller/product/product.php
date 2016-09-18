@@ -37,7 +37,7 @@ class ControllerProductProduct extends Controller
             );
 
             $data['breadcrumbs'][] = array(
-                'text' => $product_info['name']
+                'text' => $product_info['product_kod']
             );
 
             if ((float)$product_info['price']) {
@@ -147,6 +147,7 @@ class ControllerProductProduct extends Controller
             $data['product'] = array(
                 'product_id' => $product_info['product_id'],
                 'name' => $product_info['name'],
+                'product_code' => $product_info['product_kod'],
                 'model' => $product_info['model'],
                 'price' => $price,
                 'href' => $this->url->link('product/product&product_id=' . $product_info['product_id']),

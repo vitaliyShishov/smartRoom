@@ -609,6 +609,11 @@ h2 {
 
 
 .footer {
+    position: relative;
+    width: 100%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
     background: #000;
     padding: 20px 15px; 
 }
@@ -706,14 +711,15 @@ h2 {
 }
 
 .category-item-holder {
-    padding-top: 50px; 
+    padding-top: 50px;
+    min-height: calc(100vh - 271px); 
 }
 
 .product-holder {
     display: inline-block;
     max-width: 440px;
     width: 100%;
-    margin: 0 auto 20px;
+    margin: 0 auto 80px;
     padding: 20px;
     text-align: left;
     position: relative;
@@ -761,7 +767,7 @@ h2 {
     margin: 0 auto;
     display: block;
     position: relative;
-    z-index: 1;
+    z-index: 5;
 }
 
 .product-holder figcaption {
@@ -794,7 +800,7 @@ h2 {
 }
 
 .product-holder figcaption h3 {
-    margin-top: 86%;
+    margin-top: 80%;
     padding: 0;
     color: #000;
     font: 18px/20px 'Roboto';
@@ -807,10 +813,10 @@ h2 {
     padding-top: 10px;
 }
 
-.product-holder figcaption a {
+.product-holder figcaption i {
     position: absolute;
-    bottom: 10px;
-    right: 10px;
+    bottom: -10px;
+    right: 0px;
     text-align: center;
     padding: 10px 20px;
     border-radius: 2px;
@@ -823,9 +829,10 @@ h2 {
     font-weight: 600; 
 }
 
-.product-holder figcaption a:hover {
+.product-holder figcaption i:hover {
     color: #5787f4;
     background: #eee;
+    cursor: pointer;
 }
 
 /*category_item_page*/
@@ -833,7 +840,8 @@ h2 {
 /*item-page*/
 .item-page-holder {
     padding: 50px 15px;
-    background: #dbdbdb; 
+    background: #dbdbdb;
+    min-height: calc(100vh - 271px);
 }
 
 .item-wrapper {
@@ -1178,5 +1186,35 @@ h2 {
 
 }
 
-
 /* end search-block */
+
+/* thank pop-up */
+.thank-block {
+    max-width: 450px;
+    width: 100%;
+    padding: 50px 25px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    border: 1px solid #dbdbdb;
+    border-radius: 3px;
+    background: #fff;
+    display: none;
+}
+.thank-block p {
+    font: 16px/18px 'Roboto';
+    color: #000;
+    font-weight: 700;
+    text-align: center;
+}
+/* end thank pop-up */
+
+
+a .outer-figcaption {
+    text-align: center;
+    font: 14px/16px 'Roboto';
+    color: #000;
+    font-weight: 700;
+}

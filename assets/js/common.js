@@ -151,7 +151,11 @@ function saveOrder() {
                 }
             } else {
                 $('#form_callback')[0].reset();
-                $('.order-wrapper').fadeOut(1000);
+                $('.order-wrapper').hide();
+                $('#order_thanks').fadeIn(2000);
+                setTimeout(function() {
+                    $('#order_thanks').fadeOut(2000);
+                }, 2000);
             }
         }
     });

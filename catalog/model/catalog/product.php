@@ -10,7 +10,7 @@ class ModelCatalogProduct extends Model
                 pd.meta_title AS product_meta_title, 
                 pd.meta_description AS product_meta_description,
                 pd.meta_keyword AS product_meta_keyword, 
-                p.sort_order, p.in_stock 
+                p.sort_order, p.in_stock
                 FROM " . DB_PREFIX . "product p 
                 INNER JOIN " . DB_PREFIX . "product_description pd ON (p.product_id = pd.product_id) 
                 INNER JOIN " . DB_PREFIX . "product_to_store p2s ON (p.product_id = p2s.product_id) 
@@ -41,6 +41,7 @@ class ModelCatalogProduct extends Model
                 'price'                 => $query->row['price'],
                 'category_id'           => $query->row['category_id'],
                 'category_name'         => $query->row['category_name'],
+                'product_kod'           => $query->row['product_kod'],
                 'sort_order'            => $query->row['sort_order'],
                 'article'               => $query->row['article'],
                 'in_stock'              => $query->row['in_stock']

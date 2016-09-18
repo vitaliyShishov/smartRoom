@@ -36,7 +36,7 @@
                 </div>
                 <div class="col-sm-5 item-description">
                     <h2><?php echo $product['model']; ?></h2>
-                    <span><?php echo $product['name']; ?></span>
+                    <span><?php echo $product['product_code']; ?></span>
                     <div class="tab-item">
                         <ul class="nav nav-tabs" role="tablist">
                             <li role="presentation" class="active">
@@ -97,17 +97,17 @@
                            class="form-control"
                            name="name"
                            placeholder="<?php echo $text_name; ?>">
-                    <span class="error-name" id="order_error_name"><?php $error_name; ?></span>
+                    <span class="error-name" id="order_error_name"><?php echo $error_name; ?></span>
                 </div>
                 <input type="hidden" name="company" value="">
                 <input type="hidden" name="product_id" value="<?php echo $product['product_id']; ?>">
                 <div class="input-holder">
                     <input type="text"
-                           class="form-control"
+                           class="form-control phone-mask"
                            id="order_phone"
                            name="telephone"
                            placeholder="<?php echo $text_phone; ?>">
-                    <span class="error-name" id="order_error_telephone"><?php $error_phone; ?></span>
+                    <span class="error-name" id="order_error_telephone"><?php echo $error_phone; ?></span>
                 </div>
                 <a class="order text-center" onclick="saveOrder();" href="javascript:void(0);">
                     <?php echo $text_order; ?>
@@ -115,4 +115,11 @@
             </form>
         </div>
     </div>
+
+    <!-- thank-pop-up -->
+    <div class="thank-block" id="order_thanks">
+    	<p>Спасибо, Ваш заказ принят. Наш менеджер свяжется с Вами.</p>
+    </div>
+    <!-- thank-pop-up -->
+    
 <?php echo $footer ?>

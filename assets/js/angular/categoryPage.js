@@ -38,8 +38,8 @@ angular.module('categoryPage')
             FilterService.getProducts($scope.url, $scope.filtersToSend, $scope.categoryId)
                 .then(function (response) {
                     if (Object.keys(response.data.products).length > 0) {
-                        $scope.products = Object.keys($filter('pagination')(products, $scope.limit)).map(function(key) {
-                            return $filter('pagination')(products, $scope.limit)[key];
+                        $scope.products = Object.keys($filter('pagination')(response.data.products, $scope.limit)).map(function(key) {
+                            return $filter('pagination')(response.data.products, $scope.limit)[key];
                         });
                     } else {
                         $scope.products = null;

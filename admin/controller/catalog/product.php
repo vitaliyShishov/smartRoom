@@ -432,7 +432,6 @@ class ControllerCatalogProduct extends Controller
                     break;
                 }
             }
-
             $data['products'][] = array(
                 'product_id'    => $result['product_id'],
                 'image'         => $image,

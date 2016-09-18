@@ -13,7 +13,7 @@ class ModelCatalogProduct extends Model
             status = '" . (int) $data['status'] . "', 
             in_stock = '" . (int) $data['in_stock'] . "', 
             article = '" . $this->db->escape($data['article']) . "',     
-            product_kod = '" . $this->db->escape($data['article']) . "',     
+            product_kod = '" . $this->db->escape(isset($data['product_kod']) ? $data['product_kod'] : '') . "',     
             sort_order = '" . (int) $data['sort_order'] . "',
             date_added = NOW()");
         $product_id = $this->db->getLastId();

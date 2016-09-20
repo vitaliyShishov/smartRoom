@@ -22,6 +22,7 @@
     <div class="container-fluid category-title"
          ng-init="limit = limitIncrement = <?php echo $limit; ?>;
                   init(<?php echo $products; ?>, <?php echo $filters; ?>, <?php echo $url; ?>);
+                  sortArray = <?php echo $sort_array; ?>;
                   categoryId = <?php echo $category_id; ?>;">
         <div class="container">
             <div class="row">
@@ -32,6 +33,9 @@
         <div class="container tv-sort">
             <div class="row">
                 <form class="form-inline sort-wrapper">
+                    <select class="form-control" sorting>
+                        <option ng-repeat="item in sortArray" value="{{item.value}}">{{item.title}}</option>
+                    </select>
                     <select class="form-control" filters="{{filterKey}}" ng-repeat="(filterKey, filterArray) in filters">
                         <option>{{filterArray.param_name}}</option>
                         <option data-filter-key="{{key}}" ng-repeat="(key, item) in filterArray.values">{{item.title}}</option>

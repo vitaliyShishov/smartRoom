@@ -77,6 +77,10 @@ class ModelCatalogCategory extends Model
     }
 
     public function getProducts($category_id, $params, $offset = 0, $limit = 0) {
+
+        $sort = isset($params['sort']) ? $params['sort'] : null;
+        unset($params['sort']);
+
         $sql = "SELECT pv2p.product_id, 
                 p.in_stock, 
                 p.model AS model, 
@@ -129,7 +133,11 @@ class ModelCatalogCategory extends Model
             $sql .= "HAVING (count_par >= '" . (int)count($params) . "') ";
         }
 
-        $sql .= "ORDER BY p.sort_order ASC";
+        if ($sort) {
+            $sql .= "ORDER BY p.price, p.sort_order " . $sort;
+        } else {
+            $sql .= "ORDER BY p.sort_order ASC";
+        }
 
         if ($limit) {
             $sql .= " LIMIT " . $offset . ", " . $limit;

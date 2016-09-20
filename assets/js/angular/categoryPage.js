@@ -11,6 +11,7 @@ angular.module('categoryPage')
         $scope.limit = 0;
         $scope.limitIncrement = 3;
         $scope.products = null;
+        $scope.sortArray = {};
 
         $scope.init = function (products, filters, url) {
             if (filters) {

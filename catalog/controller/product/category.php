@@ -68,6 +68,18 @@ class ControllerProductCategory extends Controller
             $data['url'] = htmlspecialchars(html_entity_decode(json_encode($this->url->link('product/category/getProducts'))));
             $data['category_id'] = $category_id;
             $data['limit'] = (int)$this->config->get('config_product_limit');
+            $sort_array = array();
+
+            $sort_array[] = array(
+                'title' => 'От дешевых к дорогим',
+                'value' => 'ASC'
+            );
+            $sort_array[] = array(
+                'title' => 'От дорогих к дешевым',
+                'value' => 'DESC'
+            );
+
+            $data['sort_array'] = htmlspecialchars(html_entity_decode(json_encode($sort_array)));
 
             $open_graph = array(
                 'og:type' => 'website',

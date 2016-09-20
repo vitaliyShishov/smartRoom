@@ -10,6 +10,14 @@ angular.module('categoryPage')
            });
        }
     })
+    .directive('sorting', function () {
+        return function ($scope,element, attrs) {
+            $(element).change(function () {
+                $scope.filtersToSend['sort'] = $(element).children(':selected').val();
+                $scope.$apply();
+            });
+        }
+    })
     .directive('scroll', function () {
         return {
             restrict: 'A',

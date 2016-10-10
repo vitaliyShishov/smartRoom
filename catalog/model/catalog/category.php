@@ -64,7 +64,7 @@ class ModelCatalogCategory extends Model
      * 
      * @return array
      */
-    public function getParentCategoriesForSiteMap() {
+    public function getCategoriesForSiteMap() {
     
         $query = $this->db->query("SELECT c.category_id FROM " . DB_PREFIX . "category c "
                 . "INNER JOIN " . DB_PREFIX . "category_description cd ON (c.category_id = cd.category_id) "

@@ -33,9 +33,7 @@
         <div class="container tv-sort">
             <div class="row">
                 <form class="form-inline sort-wrapper">
-                    <select class="form-control" sorting>
-                        <option ng-repeat="item in sortArray" value="{{item.value}}">{{item.title}}</option>
-                    </select>
+
                     <select class="form-control" filters="{{filterKey}}" ng-repeat="(filterKey, filterArray) in filters">
                         <option>{{filterArray.param_name}}</option>
                         <option data-filter-key="{{key}}" ng-repeat="(key, item) in filterArray.values">{{item.title}}</option>

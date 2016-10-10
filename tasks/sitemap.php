@@ -7,6 +7,8 @@
  */
 class sitemap
 {
+
+    private $custom_seo_url = array();
     /**
      * Конструктор
      */
@@ -32,6 +34,11 @@ class sitemap
         $this->registry->set('db', $this->db);
         $this->registry->set('config', $this->config);
 
+        $this->custom_seo_url = array(
+            '' => 'common/home',
+            'search' => 'product/search'
+        );
+
         $this->run();
     }
     
@@ -42,17 +49,16 @@ class sitemap
     {
         $this->load->model('catalog/product');
         $this->load->model('catalog/category');
-        $this->load->model('catalog/information');
-        
+
         $data = array();
         
         $data['home']       = $this->rewrite($this->url->link('common/home'));
 
-        $categories = $this->registry->get('model_catalog_category')->getCategories();
+        $categories = $this->registry->get('model_catalog_category')->getCategoriesForSiteMap();
         
         foreach ($categories as $category) {
             $data['categories'][] = array(
-                'href' => $this->rewrite(html_entity_decode($this->url->link('product/category&path=' . $category['category_id'])))
+                'href' => $this->rewrite(html_entity_decode($this->url->link('product/category', 'category_id=' . $category['category_id'])))
             );
         }
         
@@ -60,7 +66,7 @@ class sitemap
 
         foreach ($products as $product) {
             $data['products'][] = array(
-                'href' => $this->rewrite(html_entity_decode($this->url->link('product/product&product_id=' . $product['product_id']))),
+                'href' => $this->rewrite(html_entity_decode($this->url->link('product/product', 'product_id=' . $product['product_id']))),
                 'date' => $product['date_modified']
             );
         }
@@ -146,43 +152,34 @@ class sitemap
     }
 
     /**
-     * Метод для seo урлов
-     *
-     * @param $link
-     * @return string
+     * rewrite method
      */
     public function rewrite($link)
     {
-
-        $custom_seo_url = array(
-            '' => 'common/home',
-            'search' => 'product/search',
-            'contact' => 'information/contact',
-            'look' => 'information/look',
-            'gallery' => 'information/gallery',
-            'cart' => 'checkout/cart'
-        );
-
         $url_info = parse_url(str_replace('&amp;', '&', $link));
         $url = '';
         $data = array();
 
-        $seo_array = array_flip($custom_seo_url);
+        $seo_array = array_flip($this->custom_seo_url);
         parse_str($url_info['query'], $data);
+
+        if (isset($url_info['fragment'])) {
+            $data['fragment'] = $url_info['fragment'];
+        }
 
         foreach ($data as $key => $value) {
             if (isset($data['route']) && !isset($data['fragment'])) {
-                if (($data['route'] == 'product/product' && $key == 'product_id') || ($data['route'] == 'information/information' && $key == 'information_id')) {
-                    $query = $this->db->query("SELECT * FROM " . DB_PREFIX . "url_alias WHERE `query` = '" . $this->db->escape($key . '=' . (int) $value) . "'");
+                if ($data['route'] == 'product/product' && $key == 'product_id') {
+                    $query = $this->db->query("SELECT * FROM " . DB_PREFIX . "url_alias WHERE `query` = '" . $this->db->escape($key . '=' . (int)$value) . "'");
 
                     if ($query->num_rows) {
                         $url .= $query->row['keyword'];
                         unset($data[$key]);
                     }
-                } elseif ($data['route'] == 'product/category' && $key == 'path') {
+                } elseif ($data['route'] == 'product/category' && $key == 'category_id') {
                     $categories = explode('_', $value);
                     foreach ($categories as $category) {
-                        $query = $this->db->query("SELECT * FROM " . DB_PREFIX . "url_alias WHERE `query` = 'category_id=" . (int) $category . "'");
+                        $query = $this->db->query("SELECT * FROM " . DB_PREFIX . "url_alias WHERE `query` = 'category_id=" . (int)$category . "'");
                         if ($query->num_rows) {
                             $url .= $query->row['keyword'];
                         } else {
@@ -198,9 +195,13 @@ class sitemap
                         unset($data[$key]);
                     }
                 }
+            } elseif (isset($data['route']) && isset($data['fragment'])) {
+                if ($key == 'fragment') {
+                    $url .= '#' . $value;
+                    unset($data[$key]);
+                }
             }
         }
-
         $route = $data['route'];
 
         if ($url) {
@@ -208,7 +209,7 @@ class sitemap
             $query = '';
             if ($data) {
                 foreach ($data as $key => $value) {
-                    $query .= '&' . rawurlencode((string) $key) . '=' . rawurlencode((string) $value);
+                    $query .= '&' . rawurlencode((string)$key) . '=' . rawurlencode((string)$value);
                 }
                 if ($query) {
                     $query = '&amp;' . str_replace('&', '&amp;', trim($query, '&'));
@@ -216,11 +217,10 @@ class sitemap
             }
             $link = $url_info['scheme'] . '://' . $url_info['host'] . (isset($url_info['port']) ? ':' . $url_info['port'] : '')
                 . str_replace('/index.php', '', $url_info['path']) . '/' . $url . $query;
-        } else if (isset($seo_array[$route])) {
+        } elseif (isset($seo_array[$route])) {
             $link = $url_info['scheme'] . '://' . $url_info['host'] . (isset($url_info['port']) ? ':' . $url_info['port'] : '')
                 . str_replace('/index.php', '', $url_info['path']) . '/' . $seo_array[$route];
         }
-        
         return $link;
     }
 }

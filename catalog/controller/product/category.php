@@ -72,11 +72,11 @@ class ControllerProductCategory extends Controller
 
             $sort_array[] = array(
                 'title' => 'От дешевых к дорогим',
-                'value' => 'ASC'
+                'value' => false
             );
             $sort_array[] = array(
                 'title' => 'От дорогих к дешевым',
-                'value' => 'DESC'
+                'value' => true
             );
 
             $data['sort_array'] = htmlspecialchars(html_entity_decode(json_encode($sort_array)));

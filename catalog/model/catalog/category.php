@@ -127,16 +127,16 @@ class ModelCatalogCategory extends Model
             }
         }
 
-        $sql .= "GROUP BY pv2p.product_id ";
+        $sql .= " GROUP BY pv2p.product_id ";
 
         if (!empty($params)) {
-            $sql .= "HAVING (count_par >= '" . (int)count($params) . "') ";
+            $sql .= " HAVING (count_par >= '" . (int)count($params) . "') ";
         }
 
         if ($sort) {
-            $sql .= "ORDER BY p.price, p.sort_order " . $sort;
+            $sql .= " ORDER BY p.price, p.sort_order " . $sort;
         } else {
-            $sql .= "ORDER BY p.sort_order ASC";
+            $sql .= " ORDER BY p.sort_order, p.price DESC ";
         }
 
         if ($limit) {

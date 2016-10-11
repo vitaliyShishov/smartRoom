@@ -33,7 +33,9 @@
         <div class="container tv-sort">
             <div class="row">
                 <form class="form-inline sort-wrapper">
-
+                    <select class="form-control" sorting>
+                        <option ng-repeat="item in sortArray" value="{{item.value}}">{{item.title}}</option>
+                    </select>
                     <select class="form-control" filters="{{filterKey}}" ng-repeat="(filterKey, filterArray) in filters">
                         <option>{{filterArray.param_name}}</option>
                         <option data-filter-key="{{key}}" ng-repeat="(key, item) in filterArray.values">{{item.title}}</option>
@@ -43,7 +45,7 @@
         </div>
         <div class="container">
             <div class="row" ng-show="products">
-                <div class="col-sm-4" ng-repeat="product in products |orderBy : 'sort_order'"  ng-show="product.flag">
+                <div class="col-sm-4" ng-repeat="product in products |orderBy : propertyName : reverse"  ng-show="product.flag">
                     <div class="product-holder">
                         <figure>
                             <img ng-src="{{product.image}}"

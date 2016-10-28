@@ -143,10 +143,16 @@ class ModelToolImportTool extends Model
                     );
 
                 }
+                
+                if (!empty($data['Вендор'])) {
+                    $temp_model_array = explode(' ', $data['Вендор']);
+                    $product['model'] = !empty($temp_model_array[0]) ? $temp_model_array[0] : '';
+                } else {
+                    $product['model'] = '';
+                }
 
                 $product['product_categories'] = $this->checkCategoryExist($data['Подкатегория']);;
 
-                $product['model'] = '';
                 $product['price'] = (float)$data['Рек.цена'];
                 $product['status'] = 0;
                 $product['product_kod'] = $data['Код'];

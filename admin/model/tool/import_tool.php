@@ -133,7 +133,6 @@ class ModelToolImportTool extends Model
                     $title_data = explode('/', $data['Наименование']);
 
                     $temp_data_array = explode(' ', $title_data[0]);
-                    $product['model'] = $temp_data_array[2];
 
                     $product['product_description'][$this->config->get('config_language_id')] = array(
                         'name' => $temp_data_array[0] . ' ' . $temp_data_array[1],
@@ -147,6 +146,7 @@ class ModelToolImportTool extends Model
 
                 $product['product_categories'] = $this->checkCategoryExist($data['Подкатегория']);;
 
+                $product['model'] = '';
                 $product['price'] = (float)$data['Рек.цена'];
                 $product['status'] = 0;
                 $product['product_kod'] = $data['Код'];

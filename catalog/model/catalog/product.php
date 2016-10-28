@@ -80,11 +80,11 @@ class ModelCatalogProduct extends Model
     public function getProductsForSiteMap()
     {
 
-        $query = $this->db->query("SELECT p.product_id, p.date_modified FROM " . DB_PREFIX . "product p "
+        $query = $this->db->query("SELECT p.product_id, p.date_modified, p.status FROM " . DB_PREFIX . "product p "
                 . "INNER JOIN " . DB_PREFIX . "product_description pd ON (p.product_id = pd.product_id) "
                 . "INNER JOIN " . DB_PREFIX . "product_to_category p2c ON (p.product_id = p2c.product_id) "
                 . "INNER JOIN " . DB_PREFIX . "product_to_store p2s ON (p.product_id = p2s.product_Id) "
-                . "WHERE status = 1 "
+                . "WHERE p.status = 1 "
                 . "AND p2s.store_id = '" . (int) $this->config->get('config_store_id') . "'");
 
         return $query->rows;

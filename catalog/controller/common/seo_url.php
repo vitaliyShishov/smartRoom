@@ -52,7 +52,8 @@ class ControllerCommonSeoUrl extends Controller
 
         $this->custom_seo_url = array(
             '' => 'common/home',
-            'search' => 'product/search'
+            'search' => 'product/search',
+            'sitemap' => 'common/sitemap'
         );
     }
 
@@ -96,6 +97,7 @@ class ControllerCommonSeoUrl extends Controller
      */
     public function toSlashUrl()
     {
+
         if (isset($this->request->get['route'])) {
             if (preg_match('/index.php/', $this->request->server['REQUEST_URI']) && $this->request->get['route'] != '') {
                 $explode_request_uri = explode($this->request->get['route'] . '&amp;', $this->request->server['REQUEST_URI']);
